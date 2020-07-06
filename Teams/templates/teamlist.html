@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">       
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+    <style>
+    div.item {
+        vertical-align: top;
+        display: inline-block;
+        text-align: center;
+        width: 200px;
+    }
+  .caption {
+        display: block;
+    }
+</style>
+</head>
+<body>
+    <div class="container">  
+        <div class="jumbotron">
+            <h1 class="display-4">ICC Teams</h1>
+            <hr class="my-4">
+            {% for team in teams %} 
+                <div class="item">
+                    <img src="{{team.logo_uri.url}}" alt="Team" class="rounded" height="150" width="150">
+                    <strong class="caption" ><a href="{% url 'team_detail' team.team_id %}">{{team.name}}</a></strong>
+                </div>
+            {% endfor %}
+          </div>
+        </div>           
+</body>
+</html>

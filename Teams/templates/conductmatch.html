@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">       
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">  
+        <div class="jumbotron">
+            {% if error_message %}
+            <p><strong>{{ error_message }}</strong></p>
+            {% endif %}
+            
+            <form action=""  method="post">
+            {% csrf_token %}
+                <label for="match_number">Match ID:</label>
+                <input type="text" id="match_number" name="match_number" size="50">
+                <br>
+                <label for="match_stadium">Stadium:</label>
+                <input type="text" id="match_stadium" name="match_stadium" required minlength="1" maxlength="255" size="50">
+                <br>
+                <label for="match_location">Location:</label>
+                <input type="text" id="match_location" name="match_location" required minlength="1" maxlength="255" size="50">
+                <br>
+                <label for="team_1">Team A:</label>
+                <input type="text" id="team_1" name="team_1" size="50">
+                <br>
+                <label for="team_2">Team B:</label>
+                <input type="text" id="team_2" name="team_2" size="50">
+                <br>
+                <input type="submit" value="Submit">
+                <br>
+                <h3><a href = "{% url 'result' %}"><strong>Match Result</strong></a></h3>
+                <br>
+            </form>
+            
+        </div>
+    </div>
+</body>
+</html>
